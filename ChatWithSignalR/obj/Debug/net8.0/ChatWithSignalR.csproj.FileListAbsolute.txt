@@ -1,0 +1,7 @@
+C:\Users\Giorgi\RiderProjects\ChatWithSignalR\ChatWithSignalR\obj\Debug\net8.0\ChatWithSignalR.csproj.AssemblyReference.cache
+C:\Users\Giorgi\RiderProjects\ChatWithSignalR\ChatWithSignalR\obj\Debug\net8.0\ChatWithSignalR.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Giorgi\RiderProjects\ChatWithSignalR\ChatWithSignalR\obj\Debug\net8.0\ChatWithSignalR.AssemblyInfoInputs.cache
+C:\Users\Giorgi\RiderProjects\ChatWithSignalR\ChatWithSignalR\obj\Debug\net8.0\ChatWithSignalR.AssemblyInfo.cs
+C:\Users\Giorgi\RiderProjects\ChatWithSignalR\ChatWithSignalR\obj\Debug\net8.0\ChatWithSignalR.csproj.CoreCompileInputs.cache
+C:\Users\Giorgi\RiderProjects\ChatWithSignalR\ChatWithSignalR\obj\Debug\net8.0\ChatWithSignalR.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Giorgi\RiderProjects\ChatWithSignalR\ChatWithSignalR\obj\Debug\net8.0\ChatWithSignalR.MvcApplicationPartsAssemblyInfo.cache
