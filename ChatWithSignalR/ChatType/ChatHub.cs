@@ -2,7 +2,7 @@ using ChatWithSignalR.DTOs;
 using ChatWithSignalR.Models;
 using Microsoft.AspNetCore.SignalR;
 
-namespace ChatWithSignalR;
+namespace ChatWithSignalR.ChatType;
 
 public class ChatHub:Hub
 {
