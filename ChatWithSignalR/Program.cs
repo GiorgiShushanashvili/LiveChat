@@ -1,4 +1,5 @@
 using ChatWithSignalR;
+using ChatWithSignalR.ChatType;
 using ChatWithSignalR.Database;
 using Microsoft.AspNetCore.Authentication;
 
@@ -27,21 +28,8 @@ app.UseEndpoints(endpoint =>
 {
     endpoint.MapDefaultControllerRoute();
     endpoint.MapHub<ChatHub>("/chat");
-    endpoint.Map("/get-cookie", ctx =>
-    {
-        ctx.Response.StatusCode = 200;
-        ctx.Response.Cookies.Append("/",Guid.NewGuid().ToString(),new()
-        {
-            
-        });
-        return ctx.Response.WriteAsync("");
-    });
-    endpoint.Map("/token", ctx =>
-    {
-        ctx.Response.StatusCode = 200;
-        return ctx.Response.WriteAsync(ctx.User.Claims.FirstOrDefault(x => x.Type == "ff")?.Value);
-        clai = ctx.User.Claims.Select(x => new { x.Type, x.Value });
-    }).RequireAuthorization("Token");
+    endpoint.MapHub<LiveChatHub>("/liveChat");
+    endpoint.MapHub<GroupChat>("/group");
 });
 
 //app.UseHttpsRedirection();

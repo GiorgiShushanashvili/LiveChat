@@ -14,16 +14,10 @@ public class ChatHub:Hub
     }
     public async Task SendMessage(InputMessage message)
     {
+        var receiverId = _chatRegistry.GetUserId(message.Room);
         var userName = Context.User.Claims.FirstOrDefault(x => x.Type == "username").Value;
-        var userMessage = new UserMessage(0,message.Message,RoomId:null,Context.UserIdentifier,DateTimeOffset.Now);
+        var userMessage = new UserMessage(0,message.Message,RoomId:null,receiverId,DateTimeOffset.Now,null);
         _chatRegistry.AddMessage(userMessage);
-        await Clients.All.SendAsync("ReceiveMessage",message,userMessage);
+        await Clients.All.SendAsync("ReceiveMessage",userName,userMessage);
     } 
-
-    public async Task<List<OutputMessage>> JoinRoom(RoomRequest request)
-    {
-        await Groups.AddToGroupAsync(Context.ConnectionId, request.Room);
-
-        return _chatRegistry.GetMessages(request.Room).ToList();
-    }
 }

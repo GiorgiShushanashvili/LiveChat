@@ -28,6 +28,16 @@ public class ChatRegistry
         return _chatDbContext.Room.Where(x=>x.Name==room).SelectMany(x=>x.Messages).ToList();
     }
 
+    public int GetUserId(string name)
+    {
+       return _chatDbContext.User.FirstOrDefault(x => x.UserName == name).Id;
+    }
+
+    public int GetRoomId(string name)
+    {
+        return _chatDbContext.Room.FirstOrDefault(x => x.Name == name).Id;
+    }
+    
     public IQueryable GetRooms()
     {
         return _chatDbContext.Room.Select(x=>x.Name);
