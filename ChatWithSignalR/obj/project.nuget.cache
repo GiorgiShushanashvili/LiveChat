@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "KVhM8OsArv24jrEwFTwd9Z+Qb5uyyUXGeN8qaneT/CdYSVGFxsZtQE9iu4OtC5TbfEj7CdYpBFyCVQyIqRE+wg==",
+  "dgSpecHash": "0AgZpe0H4iuAyviY0skVAwtAJYcK0o4piYlMPO9TR/AqPDoNVRw81pWEqHYeheTQCgDJuoFrTIu+8cA1svJ+pw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Giorgi\\RiderProjects\\ChatWithSignalR\\ChatWithSignalR\\ChatWithSignalR.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Giorgi\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\Giorgi\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.7\\microsoft.aspnetcore.authentication.jwtbearer.8.0.7.nupkg.sha512",
     "C:\\Users\\Giorgi\\.nuget\\packages\\microsoft.aspnetcore.authorization\\2.2.0\\microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",
     "C:\\Users\\Giorgi\\.nuget\\packages\\microsoft.aspnetcore.authorization.policy\\2.2.0\\microsoft.aspnetcore.authorization.policy.2.2.0.nupkg.sha512",
     "C:\\Users\\Giorgi\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\9.0.0-preview.5.24306.11\\microsoft.aspnetcore.connections.abstractions.9.0.0-preview.5.24306.11.nupkg.sha512",
@@ -50,6 +51,8 @@
     "C:\\Users\\Giorgi\\.nuget\\packages\\microsoft.identitymodel.abstractions\\8.0.1\\microsoft.identitymodel.abstractions.8.0.1.nupkg.sha512",
     "C:\\Users\\Giorgi\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\8.0.1\\microsoft.identitymodel.jsonwebtokens.8.0.1.nupkg.sha512",
     "C:\\Users\\Giorgi\\.nuget\\packages\\microsoft.identitymodel.logging\\8.0.1\\microsoft.identitymodel.logging.8.0.1.nupkg.sha512",
+    "C:\\Users\\Giorgi\\.nuget\\packages\\microsoft.identitymodel.protocols\\7.1.2\\microsoft.identitymodel.protocols.7.1.2.nupkg.sha512",
+    "C:\\Users\\Giorgi\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\7.1.2\\microsoft.identitymodel.protocols.openidconnect.7.1.2.nupkg.sha512",
     "C:\\Users\\Giorgi\\.nuget\\packages\\microsoft.identitymodel.tokens\\8.0.1\\microsoft.identitymodel.tokens.8.0.1.nupkg.sha512",
     "C:\\Users\\Giorgi\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
     "C:\\Users\\Giorgi\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",

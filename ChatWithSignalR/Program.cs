@@ -1,7 +1,8 @@
-using ChatWithSignalR;
+using System.Text;
 using ChatWithSignalR.ChatType;
 using ChatWithSignalR.Database;
-using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +11,24 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 //builder.Services.AddSwaggerGen();
 builder.Services.AddSignalR();
+builder.Services.AddControllers();
 builder.Services.AddDbContext<ChatDbContext>();
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(o =>
+{
+    o.TokenValidationParameters = new TokenValidationParameters()
+    {
+        ValidateLifetime = false,
+        IssuerSigningKey =
+            new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetSection("SecretKey").Value))
+
+    };
+});
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
@@ -32,6 +50,8 @@ app.UseEndpoints(endpoint =>
     endpoint.MapHub<GroupChat>("/group");
 });
 
+app.UseAuthentication();
+app.UseAuthorization();
 //app.UseHttpsRedirection();
 //app.MapHub<ChatHub>("chat-hub");
 

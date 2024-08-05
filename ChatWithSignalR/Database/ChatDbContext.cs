@@ -19,4 +19,5 @@ public class ChatDbContext:DbContext
     public DbSet<UserMessage> Messages { get; set; }
     public DbSet<UserProfile> UserProfile { get; set; }
     public DbSet<Room> Room { get; set; }
+    public DbSet<Role> Role { get; set; }
 }
