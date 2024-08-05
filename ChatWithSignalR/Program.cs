@@ -22,6 +22,8 @@ builder.Services.AddAuthentication(options =>
 {
     o.TokenValidationParameters = new TokenValidationParameters()
     {
+        ValidateIssuer = false,
+        ValidateAudience = false,
         ValidateLifetime = false,
         IssuerSigningKey =
             new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetSection("SecretKey").Value))
@@ -36,8 +38,6 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
-    //app.UseSwagger();
-    //app.UseSwaggerUI();
 }
 
 app.UseStaticFiles();

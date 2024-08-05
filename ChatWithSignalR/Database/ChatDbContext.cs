@@ -4,9 +4,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ChatWithSignalR.Database;
 
-public class ChatDbContext:DbContext
+public class ChatDbContext : DbContext
 {
-    public ChatDbContext(DbContextOptions<ChatDbContext> options):base(options){}
+    public ChatDbContext(DbContextOptions<ChatDbContext> options) : base(options)
+    {
+    }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -14,10 +16,18 @@ public class ChatDbContext:DbContext
         base.OnModelCreating(builder);
         builder.Entity<UserMessage>()
             .HasKey(m => m.Id);
+        builder.Entity<User>(entity =>
+        {
+            entity.Property(e => e.Id)
+                .ValueGeneratedOnAdd();
+        });
+        builder.Entity<UserProfile>()
+            .HasKey(m => m.Id);
     }
+
     public DbSet<User> User { get; set; }
     public DbSet<UserMessage> Messages { get; set; }
     public DbSet<UserProfile> UserProfile { get; set; }
+    public DbSet<Role> Roles { get; set; }
     public DbSet<Room> Room { get; set; }
-    public DbSet<Role> Role { get; set; }
 }
