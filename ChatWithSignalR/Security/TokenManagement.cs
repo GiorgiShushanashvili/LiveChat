@@ -14,7 +14,7 @@ public class TokenManagement
     {
         _configuration = configuration;
     }
-    public async Task<string> GenerateToken(string role, string userName)
+    public async Task<string> GenerateToken(string? role, string userName)
     {
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -22,7 +22,7 @@ public class TokenManagement
         {
             new Claim(ClaimTypes.Name, userName)
         };
-        if (role == "Admin" || role == "Guest" || role == "User")
+        if (role == "Admin")
         {
             claims.Add(new Claim(ClaimTypes.Role, role));
         }

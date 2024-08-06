@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/giorgishushanashvili/Desktop/Apis/LiveChat/ChatWithSignalR/ChatWithSignalR.csproj": {}
+    "C:\\Users\\Giorgi\\RiderProjects\\ChatWithSignalR\\ChatWithSignalR\\ChatWithSignalR.csproj": {}
   },
   "projects": {
-    "/Users/giorgishushanashvili/Desktop/Apis/LiveChat/ChatWithSignalR/ChatWithSignalR.csproj": {
+    "C:\\Users\\Giorgi\\RiderProjects\\ChatWithSignalR\\ChatWithSignalR\\ChatWithSignalR.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/giorgishushanashvili/Desktop/Apis/LiveChat/ChatWithSignalR/ChatWithSignalR.csproj",
+        "projectUniqueName": "C:\\Users\\Giorgi\\RiderProjects\\ChatWithSignalR\\ChatWithSignalR\\ChatWithSignalR.csproj",
         "projectName": "ChatWithSignalR",
-        "projectPath": "/Users/giorgishushanashvili/Desktop/Apis/LiveChat/ChatWithSignalR/ChatWithSignalR.csproj",
-        "packagesPath": "/Users/giorgishushanashvili/.nuget/packages/",
-        "outputPath": "/Users/giorgishushanashvili/Desktop/Apis/LiveChat/ChatWithSignalR/obj/",
+        "projectPath": "C:\\Users\\Giorgi\\RiderProjects\\ChatWithSignalR\\ChatWithSignalR\\ChatWithSignalR.csproj",
+        "packagesPath": "C:\\Users\\Giorgi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Giorgi\\RiderProjects\\ChatWithSignalR\\ChatWithSignalR\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/giorgishushanashvili/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Giorgi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -41,6 +43,14 @@
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[8.0.7, )"
+            },
+            "Microsoft.AspNetCore.Authorization": {
+              "target": "Package",
+              "version": "[9.0.0-preview.6.24328.4, )"
+            },
+            "Microsoft.AspNetCore.Authorization.Policy": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
@@ -96,7 +106,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

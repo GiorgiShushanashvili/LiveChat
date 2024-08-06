@@ -16,11 +16,9 @@ public class ChatDbContext : DbContext
         base.OnModelCreating(builder);
         builder.Entity<UserMessage>()
             .HasKey(m => m.Id);
-        builder.Entity<User>(entity =>
-        {
-            entity.Property(e => e.Id)
-                .ValueGeneratedOnAdd();
-        });
+        builder.Entity<User>()
+            .Property(u => u.Id)
+            .ValueGeneratedOnAdd();
         builder.Entity<UserProfile>()
             .HasKey(m => m.Id);
     }
@@ -28,6 +26,5 @@ public class ChatDbContext : DbContext
     public DbSet<User> User { get; set; }
     public DbSet<UserMessage> Messages { get; set; }
     public DbSet<UserProfile> UserProfile { get; set; }
-    public DbSet<Role> Roles { get; set; }
     public DbSet<Room> Room { get; set; }
 }

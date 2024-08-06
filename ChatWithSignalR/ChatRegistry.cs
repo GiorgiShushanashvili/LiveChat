@@ -1,4 +1,5 @@
 using ChatWithSignalR.Database;
+using ChatWithSignalR.DTOs;
 using ChatWithSignalR.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,14 +14,10 @@ public class ChatRegistry
         _chatDbContext = dbContext;
     }
 
-    public void CreateRoom(Room room)
-    {
-        _chatDbContext.Room.Add(room);
-    }
-
     public void AddMessage(UserMessage message)
     {
         _chatDbContext.Messages.Add(message);
+        _chatDbContext.SaveChanges();
     }
 
     public List<UserMessage> GetMessages(string room)
@@ -33,12 +30,23 @@ public class ChatRegistry
        return _chatDbContext.User.FirstOrDefault(x => x.UserName == name).Id;
     }
 
+    public User GetUserByName(string name)
+    {
+       return _chatDbContext.User.FirstOrDefault(x => x.UserName == name);
+    }
+
     public int GetRoomId(string name)
     {
         return _chatDbContext.Room.FirstOrDefault(x => x.Name == name).Id;
     }
+
+    public void CreateGroup(Room room)
+    {
+        _chatDbContext.Room.Add(room);
+        _chatDbContext.SaveChanges();
+    }
     
-    public IQueryable GetRooms()
+    public IQueryable<string> GetRooms()
     {
         return _chatDbContext.Room.Select(x=>x.Name);
     }
