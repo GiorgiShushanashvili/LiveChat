@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.3/signalr.min.js"></script>
 </head>
 <body>
 <script>
-    let connection = new signalR.
+    var currentRoom="";
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/chatHub")
+        .configureLogging(signalR.LogLevel.Information)
+        .build();
+    const auth = (u)=>fetch('/auth?username' +u)
+    const send = (message)=>connection.send("")
 </script>
 </body>
 </html>

@@ -6,7 +6,7 @@ using ChatWithSignalR.Models;
 using ChatWithSignalR.Security;
 using Microsoft.EntityFrameworkCore;
 
-namespace ChatWithSignalR;
+namespace ChatWithSignalR.DataAccess;
 
 public class AuthenticationService
 {

@@ -1,6 +1,8 @@
 using ChatWithSignalR.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
+using AuthenticationService = ChatWithSignalR.DataAccess.AuthenticationService;
+
 namespace ChatWithSignalR;
 
 public class ChatController : ControllerBase
@@ -21,6 +23,8 @@ public class ChatController : ControllerBase
        var token = await _service.LogIn(logInDto,room);
        return Ok(token);
     }
+    [HttpGet]
+    
 
     [HttpPost(nameof(Register))]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]

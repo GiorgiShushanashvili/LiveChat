@@ -1,5 +1,6 @@
 using System.Collections.Concurrent;
 using System.Security.Claims;
+using ChatWithSignalR.DataAccess;
 using ChatWithSignalR.DTOs;
 using ChatWithSignalR.Enums;
 using ChatWithSignalR.Exceptions;
@@ -9,7 +10,7 @@ using Microsoft.AspNetCore.SignalR;
 
 namespace ChatWithSignalR.ChatType;
 
-public class GroupChat:Hub
+/*public class GroupChat:Hub
 {
     private readonly ConcurrentDictionary<string, string> _currentConnections = new();
     private readonly ChatRegistry _chatRegistry;
@@ -52,22 +53,19 @@ public class GroupChat:Hub
     public async Task<List<OutputMessage>> AddToGroup(RoomRequest room,string userName)
     {
         List<OutputMessage> messages = new();
-        if (Context.User.HasClaim(c => c.Type == "Role" && c.Value == "Admin"))
+        if (_currentConnections.TryGetValue(userName, out string connId))
         {
-            if (_currentConnections.TryGetValue(userName, out string connId))
-            {
-                await Groups.AddToGroupAsync(connId, room.Room);
-                Clients.Group(room.Room).SendAsync("Notify", $"{userName} has joined"); 
-                messages = _chatRegistry.GetMessages(room.Room).Select(x => new OutputMessage(
-                    Message: x.Message,
-                    UserName: x.User.UserName,
-                    Room: room.Room,
-                    SentAt: x.SentAt)).ToList();
-            }
-            else
-            {
-                throw new UserNotAddException();
-            }
+            await Groups.AddToGroupAsync(connId, room.Room); 
+            Clients.Group(room.Room).SendAsync("Notify", $"{userName} has joined"); 
+            messages = _chatRegistry.GetMessages(room.Room).Select(x => new OutputMessage(
+                Message: x.Message, 
+                UserName: x.User.UserName,
+                Room: room.Room,
+                SentAt: x.SentAt)).ToList();
+        }
+        else
+        {
+            throw new UserNotAddException();
         }
         return messages;
     }
@@ -80,23 +78,20 @@ public class GroupChat:Hub
     [Authorize(Policy = "AdminOnly")]
     public async Task RemoveFromGroup(RoomRequest room, string userName)
     {
-        if (Context.User.HasClaim(x => x.Type == "Role" && x.Value == "Admin"))
+        if (_currentConnections.TryGetValue(userName, out string connId))
         {
-            if (_currentConnections.TryGetValue(userName, out string connId))
-            {
-                await Groups.RemoveFromGroupAsync(connId, room.Room);
-                Clients.Group(room.Room).SendAsync("RemoveUserFromGroup", $"{userName} Has Been Removed");
-            }
+            await Groups.RemoveFromGroupAsync(connId, room.Room);
+            Clients.Group(room.Room).SendAsync("RemoveUserFromGroup", $"{userName} Has Been Removed");
         }
     }
 
     public async Task SendMessageToGroup(InputMessage inputMessage)
     {
-        var userName = Context.User.Claims.FirstOrDefault(x => x.Type == "user").Value;
+        var userName = Context.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Name).Value;
         var roomId = _chatRegistry.GetRoomId(inputMessage.Room);
         var userMessage = new UserMessage(0, inputMessage.Message, roomId, null, DateTimeOffset.Now, null);
         _chatRegistry.AddMessage(userMessage); 
         await Clients.GroupExcept(inputMessage.Room, new[] { Context.ConnectionId }).SendAsync("Send_MessageToGroup",userMessage,inputMessage.Room);
     }
 
-}
+}*/

@@ -1,9 +1,7 @@
 using ChatWithSignalR.Database;
-using ChatWithSignalR.DTOs;
 using ChatWithSignalR.Models;
-using Microsoft.EntityFrameworkCore;
 
-namespace ChatWithSignalR;
+namespace ChatWithSignalR.DataAccess;
 
 public class ChatRegistry
 {
