@@ -1,7 +1,10 @@
 using System.Text;
 using ChatWithSignalR.ChatType;
+using ChatWithSignalR.DataAccess;
 using ChatWithSignalR.Database;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,8 +14,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddSignalR();
 builder.Services.AddControllers();
+builder.Services.AddSingleton<LiveChatRegistry>();
 //builder.Services.AddDbContext<ChatDbContext>();
-builder.Services.AddAuthentication(options =>
+/*builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -36,7 +40,14 @@ builder.Services.AddAuthorization(options =>
         policy.RequireClaim("Role", "Admin");
     });
     
-});
+});*/
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+        options.SlidingExpiration = true;
+        options.LoginPath = "/auth";
+    });
 
 var app = builder.Build();
 
@@ -48,6 +59,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseStaticFiles();
 app.UseRouting();
+
+
+app.UseAuthentication();
+app.UseAuthorization();
 app.UseEndpoints(endpoint =>
 {
     endpoint.MapDefaultControllerRoute();
@@ -55,10 +70,5 @@ app.UseEndpoints(endpoint =>
     endpoint.MapHub<LiveChatHub>("/liveChat");
     //endpoint.MapHub<GroupChat>("/group");
 });
-
-app.UseAuthentication();
-app.UseAuthorization();
-//app.UseHttpsRedirection();
-
 
 app.Run();

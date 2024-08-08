@@ -12,7 +12,7 @@ public class ChatDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-        builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        /*builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         base.OnModelCreating(builder);
         builder.Entity<UserMessage>()
             .HasKey(m => m.Id);
@@ -20,7 +20,7 @@ public class ChatDbContext : DbContext
             .Property(u => u.Id)
             .ValueGeneratedOnAdd();
         builder.Entity<UserProfile>()
-            .HasKey(m => m.Id);
+            .HasKey(m => m.Id);*/
     }
 
     public DbSet<User> User { get; set; }

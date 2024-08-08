@@ -2,10 +2,12 @@ using System.Security.Claims;
 using ChatWithSignalR.DataAccess;
 using ChatWithSignalR.DTOs;
 using ChatWithSignalR.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 
 namespace ChatWithSignalR.ChatType;
 
+[Authorize]
 public class LiveChatHub:Hub
 {
     private readonly LiveChatRegistry _chatRegistry;
@@ -13,11 +15,13 @@ public class LiveChatHub:Hub
     public async Task SendLiveMessage(InputMessage message)
     {
         var userName = Context.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Name).Value;
-        var messageToSend = new MessageDto(
+        var messageToSend = new UserMessage(
+            new User(Context.UserIdentifier,userName),
             Message: message.Message,
+            Room:message.Room,
             SentAt: DateTimeOffset.Now
-        );
-        _chatRegistry.AddMessage(messageToSend,message.Room);
+        ); 
+        //_chatRegistry.AddMessage(messageToSend,message.Room);
         await Clients.All.SendAsync("SendLiveMessage", messageToSend, message.Room);
     }
 
@@ -34,11 +38,14 @@ public class LiveChatHub:Hub
 
     public async Task SendLiveMessageToGroup(InputMessage inputMessage)
     {
-        var messageToSend = new MessageDto(
+        var userName = Context.User.Claims?.FirstOrDefault(x => x.Type == ClaimTypes.Name).Value;
+        var messageToSend = new UserMessage(
+            new User(Context.UserIdentifier,userName),
             Message: inputMessage.Message,
+            Room:inputMessage.Room,
             SentAt: DateTimeOffset.Now);
-        if(!_chatRegistry.GroupExists(inputMessage.Room))
-            _chatRegistry.CreateGroup(inputMessage.Room);
+        /*if(!_chatRegistry.GroupExists(inputMessage.Room))
+            _chatRegistry.CreateGroup(inputMessage.Room);*/
         _chatRegistry.AddMessage(messageToSend,inputMessage.Room);
         await Clients.GroupExcept(inputMessage.Room,new[]{ Context.ConnectionId})
             .SendAsync("SendLiveMessageToGroup", messageToSend);

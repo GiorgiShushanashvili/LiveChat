@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Giorgi\\RiderProjects\\ChatWithSignalR\\ChatWithSignalR\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\RiderProjects\\ChatWithSignalR\\ChatWithSignalR\\wwwroot\\package-lock.json",
+      "PackagePath": "staticwebassets\\package-lock.json"
+    },
+    {
+      "Id": "C:\\Users\\Giorgi\\RiderProjects\\ChatWithSignalR\\ChatWithSignalR\\wwwroot\\package.json",
+      "PackagePath": "staticwebassets\\package.json"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.ChatWithSignalR.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.ChatWithSignalR.props",
+      "PackagePath": "build\\ChatWithSignalR.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.ChatWithSignalR.props",
+      "PackagePath": "buildMultiTargeting\\ChatWithSignalR.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.ChatWithSignalR.props",
+      "PackagePath": "buildTransitive\\ChatWithSignalR.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

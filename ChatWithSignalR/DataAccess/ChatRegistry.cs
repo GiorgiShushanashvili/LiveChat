@@ -3,7 +3,7 @@ using ChatWithSignalR.Models;
 
 namespace ChatWithSignalR.DataAccess;
 
-public class ChatRegistry
+/*public class ChatRegistry
 {
     private readonly ChatDbContext _chatDbContext;
 
@@ -48,4 +48,4 @@ public class ChatRegistry
     {
         return _chatDbContext.Room.Select(x=>x.Name);
     }
-}
+}*/

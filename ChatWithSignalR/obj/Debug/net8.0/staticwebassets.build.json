@@ -1,0 +1,77 @@
+{
+  "Version": 1,
+  "Hash": "5cKR54VabVi3dMquX+e2p0BYOzQbZIseFvtlT1epeKI=",
+  "Source": "ChatWithSignalR",
+  "BasePath": "_content/ChatWithSignalR",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ChatWithSignalR\\wwwroot",
+      "Source": "ChatWithSignalR",
+      "ContentRoot": "C:\\Users\\Giorgi\\RiderProjects\\ChatWithSignalR\\ChatWithSignalR\\wwwroot\\",
+      "BasePath": "_content/ChatWithSignalR",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Giorgi\\RiderProjects\\ChatWithSignalR\\ChatWithSignalR\\wwwroot\\index.html",
+      "SourceId": "ChatWithSignalR",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Giorgi\\RiderProjects\\ChatWithSignalR\\ChatWithSignalR\\wwwroot\\",
+      "BasePath": "_content/ChatWithSignalR",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\Giorgi\\RiderProjects\\ChatWithSignalR\\ChatWithSignalR\\wwwroot\\package-lock.json",
+      "SourceId": "ChatWithSignalR",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Giorgi\\RiderProjects\\ChatWithSignalR\\ChatWithSignalR\\wwwroot\\",
+      "BasePath": "_content/ChatWithSignalR",
+      "RelativePath": "package-lock.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\package-lock.json"
+    },
+    {
+      "Identity": "C:\\Users\\Giorgi\\RiderProjects\\ChatWithSignalR\\ChatWithSignalR\\wwwroot\\package.json",
+      "SourceId": "ChatWithSignalR",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Giorgi\\RiderProjects\\ChatWithSignalR\\ChatWithSignalR\\wwwroot\\",
+      "BasePath": "_content/ChatWithSignalR",
+      "RelativePath": "package.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\package.json"
+    }
+  ]
+}

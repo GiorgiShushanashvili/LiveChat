@@ -9,11 +9,42 @@
 <script>
     var currentRoom="";
     const connection = new signalR.HubConnectionBuilder()
-        .withUrl("/chatHub")
+        .withUrl("/livechat")
         .configureLogging(signalR.LogLevel.Information)
         .build();
-    const auth = (u)=>fetch('/auth?username' +u)
-    const send = (message)=>connection.send("")
+    const auth = (u)=>fetch('/auth?username=' +u)
+    const send = (message)=>connection.send("SendLiveMessageToGroup",{message,room:currentRoom})
+
+    /*const create = (name) => {
+        fetch('/create', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({ name: name }),
+        })
+            .then(response => response.json())
+            .then(result => console.log(result))
+            .catch(error => console.error('Error:', error));
+    };*/
+
+
+    const create=(name)=>fetch('/create?name=' +name)
+        .then((result)=>console.log(result)).catch((err)=> console.log(error))
+    const join = (room)=>connection.start()
+    .then(()=>connection.invoke('JoinGroup',{room}))
+    .then((history)=>{
+        console.log('message history',history)
+        currentRoom=room
+        connection.on('send_message',m=>console.log(m))
+    })
+    
+    const leave=()=>connection.send('LeaveRoom',{room:currentRoom})
+    .then(()=>{
+        currentRoom=''
+        connection.off('send_message')
+        return connection.stop()
+    })
 </script>
 </body>
 </html>
